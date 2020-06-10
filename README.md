@@ -92,7 +92,11 @@ source "$INSTALL_DIR/conda/etc/profile.d/conda.sh"
 conda activate
 git clone https://github.com/SymbiFlow/symbiflow-examples && cd symbiflow-examples
 # counter example
+echo "Build arty counter"
+export TARGET="arty"
+echo $TARGET
 pushd examples/xc7/counter_test && TARGET="arty" make && popd
+echo "Build basys3 counter"
 pushd examples/xc7/counter_test && TARGET="basys3" make && popd
 # picosoc example
 pushd examples/xc7/picosoc_demo && make && popd
